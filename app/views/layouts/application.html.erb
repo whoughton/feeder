@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Feeder</title>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+
+<section class="header">
+	<h1>Feeder</h1>
+</section>
+<nav>
+<ul>
+	<li>
+		<%= link_to 'Users', root_path %>
+	</li>
+	<% if session.has_key? :user %>
+	<li>
+		<%= link_to 'Current User’s Feeds', individual_feeds_path(session[:user]) %>
+	</li>
+	<li>
+		<%= link_to 'Current User’s Entries', individual_entries_path(session[:user]) %>
+	</li>
+	<% end %>
+</ul>
+</nav>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+<section class="segment">
+	<div class="panel">
+		<h2><%= @user.name %>’s entries in [<%= @feed.name %>]</h2>
+		<ul class="list">
+		<% @feed.entries.each do |entry| %>
+			<li>
+				<div class="entry">
+					<%= entry.name %> from: <%= entry.url %>
+				</div>
+				<%= link_to 'Delete', individual_entry_path(@user, entry), { method: :delete, class: 'button cancel'} %>
+			</li>
+		<% end %>
+		<% if @feed.entries.length < 1 %>
+			<li><div class="entry"><%= @user.name %> has not created any entries in [<%= @feed.name %>].<div class="entry"></li>
+		<% end %>
+		</ul>
+		<%= link_to 'Add an entry', new_individual_entry_path(@user), {class: 'button'} %>
+	</div>
+</section>
+

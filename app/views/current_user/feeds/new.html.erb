@@ -1,0 +1,26 @@
+
+<section class="segment">
+	<div class="panel">
+		<h2>New Feed for <%= @user.name %></h2>
+		<%= form_for :feed, url: individual_feeds_path(@user) do |f| %>
+		<% if @feed.errors.any? %>
+			<div class="error"><%= @feed.errors.full_messages.join(". ") %></div>
+		<% end %>
+		<ul>
+			<li>
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</li>
+			<li>
+				<%= f.label :description %>
+				<%= f.text_area :description %>
+			</li>
+			<li class="actions">
+				<%= link_to 'Cancel', individual_feeds_path, {class: 'button cancel'} %>
+				<%= f.submit %>
+			</li>
+		</ul>
+		<% end %>
+	</div>
+</section>
+

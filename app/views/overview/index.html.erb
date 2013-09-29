@@ -1,0 +1,23 @@
+
+<section class="segment">
+	<div class="panel">
+		<h2>Users</h2>
+		<ul class="list">
+		<% @users.each do |user| %>
+			<li>
+				<div class="entry">
+					<%= user.name %>
+					<%= "<#{user.email}>" if !user.email.nil? %>
+				</div>
+				<%= link_to 'Delete', user_path(user), { method: :delete, class: 'button cancel'} %>
+				<%= link_to 'Act As', individual_feeds_path(user.id), { class: 'button'} %>
+			</li>
+		<% end %>
+		<% if @users.length < 1 %>
+			<li><div class="entry">No users in the system currently.</div></li>
+		<% end %>
+		</ul>
+		<%= link_to 'Add a user', new_user_path, {class: 'button'} %>
+	</div>
+</section>
+

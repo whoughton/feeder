@@ -1,0 +1,23 @@
+
+<section class="segment">
+	<div class="panel">
+		<h2><%= @user.name %>’s Feeds</h2>
+		<ul class="list">
+		<% @user.feeds.each do |feed| %>
+			<li>
+				<div class="entry">
+					<%= feed.name %>
+					<%= feed.description if !feed.description.nil? %>
+				</div>
+				<%= link_to 'Delete', individual_entries_path(@user, feed), { method: :delete, class: 'button cancel'} %>
+				<%= link_to 'Feed entries', individual_feed_entries_path(@user, feed), { class: 'button'} %>
+			</li>
+		<% end %>
+		<% if @user.feeds.length < 1 %>
+			<li><div class="entry"><%= @user.name %> has not created any feeds yet.<div class="entry"></li>
+		<% end %>
+		</ul>
+		<%= link_to 'Add a feed', new_individual_feed_path(@user), {class: 'button'} %>
+	</div>
+</section>
+

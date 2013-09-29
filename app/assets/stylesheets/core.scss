@@ -1,0 +1,253 @@
+// Place all the styles related to the overview controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$azure: hsl(212, 100%, 36%);
+$cancel: rgb(226, 96, 15);
+
+@import url(http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic|Cabin+Sketch:400,700|Cabin+Condensed:400,500,600,700);
+* {
+	margin: 0;
+	padding: 0;
+	@include box-sizing(border-box);
+}
+
+html, body {
+	width: 100%;
+	min-height: 100%;
+}
+
+ul, li {
+	list-style-type: none;
+}
+
+body {
+	@include linear-gradient(to bottom left, hsla(0, 0%, 100%, 0.25) 0%, hsla(0, 0%, 0%, 0.25) 100%, $fallback: hsl(0, 0%, 96%));
+
+	.header {
+		width: 100%;
+		background: $azure;
+		padding: 16px 0 0 16px;
+		overflow: hidden;
+		border-bottom: 4px solid hsl(0, 0%, 100%);
+	
+		h1 {
+			font-family: "Cabin Sketch";
+			font-size: 96px;
+			font-weight: 700;
+			color: white;
+			margin-bottom: -12px;
+			line-height: 64px;
+			-webkit-font-smoothing: antialiased;
+		}
+	}
+	
+	nav {
+		background: white;
+		border-bottom: 4px solid hsl(0, 0%, 100%);
+		
+		ul {
+			padding: 0 12px;
+			li {
+				display: inline-block;
+				margin: 0 2px;
+				padding: 8px;
+				background: $cancel;
+				font-family: "Cabin Condensed";
+				font-weight: 700;
+				font-size: 12px;
+				text-transform: uppercase;
+				color: white;
+				border-radius: 2px;
+				border: 1px solid shade($cancel, 30%);
+				
+				a {
+					color: white;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	
+	.segment {
+		width: 100%;
+		margin: 24px 0;
+		background: hsl(0, 0%, 98%);
+		border-top: 1px solid hsla(0, 0%, 0%, 0.35);
+		border-bottom: 1px solid hsla(0, 0%, 0%, 0.35);
+		box-shadow: 2px 2px 4px hsla(0, 0%, 0%, 0.1);
+		
+		.panel {
+			font-family: "Cabin";
+			width: 768px;
+			margin: 0 auto;
+			padding: 32px 0;
+			
+			h2 {
+				font-family: "Cabin Condensed";
+				font-size: 36px;
+				font-weight: 700;
+				line-height: 24px;
+				color: white;
+				padding: 8px 8px 0 8px;
+				border-radius: 4px;
+				background-color: hsla(212, 100%, 36%, 0.5);
+				margin-bottom: 8px;
+				text-shadow: 0 -1px 0 hsla(0, 0%, 0%, .35);
+				overflow: hidden;
+				-webkit-font-smoothing: antialiased;
+			}
+			
+			div.error {
+				padding: 8px;
+				color: $cancel;
+			}
+			
+			ul {
+				margin-bottom: 32px;
+				
+				li {
+					display: block;
+					width: 416px;
+					margin: 8px auto;
+					padding: 0;
+					border: 2px solid hsl(0, 0%, 80%);
+					border-radius: 4px;
+					background-color: white;
+					height: 48px;
+					font-size: 0;
+					overflow: hidden;
+					
+					.field_with_errors {
+						display: inline-block;
+						vertical-align: top;
+						
+						label {
+							background-color: $cancel;
+							color: white;
+							-webkit-font-smoothing: antialiased;
+						}
+					}
+					
+					label {
+						display: inline-block;
+						color: hsl(0, 0%, 35%);
+						background-color: hsl(0, 0%, 92%);
+						font-size: 12px;
+						text-transform: uppercase;
+						font-weight: 600;
+						padding: 0 16px 0 8px;
+						text-align: right;
+						width: 96px;
+						line-height: 44px;
+						vertical-align: top;
+					}
+					
+					input {
+						width: 308px;
+						height: 40px;
+						line-height: 40px;
+						margin: 0 4px 4px 4px;
+						border: none;
+						border-bottom: 1px dotted $azure;
+						vertical-align: top;
+						font-family: "Cabin";
+						font-size: 18px;
+					}
+					
+					select {
+						width: 308px;
+						margin: 12px 4px 4px 4px;
+					}
+					
+					textarea {
+						resize: none;
+						border: none;
+						width: 308px;
+						height: 40px;
+						padding: 4px;
+						margin: 2px 4px;
+						font-family: "Cabin";
+						font-size: 14px;
+					}
+					
+					&.actions {
+						border: none;
+						background: transparent;
+						text-align: right;
+						
+						a.button, input {
+							width: auto;
+							height: auto;
+							display: inline-block;
+							border-radius: 2px;
+							font-family: "Cabin Condensed";
+							background: $azure;
+							padding: 8px 16px;
+							margin: 0 0 0 16px;
+							line-height: normal;
+							font-weight: 400;
+							font-size: 15px;
+							text-align: center;
+							color: white;
+							border: 1px solid shade($azure, 30%);
+							text-shadow: none;
+							cursor: pointer;
+							text-decoration: none;
+							-webkit-font-smoothing: antialiased;
+				
+							&.cancel {
+								background-color: $cancel;
+								border: 1px solid shade($cancel, 30%);
+							}
+						}
+					}
+				}
+					
+				&.list {
+					li {
+						width: 100%;
+						background: transparent;
+						border: none;
+						border-radius: 0;
+						border-bottom: 1px solid hsl(0, 0%, 80%);
+						
+						div {
+							display: inline-block;
+							width: 560px;
+							font-size: 16px;
+							color: black;
+							line-height: 48px;
+						}
+					}
+				}
+			}
+
+			a.button, button {
+				width: auto;
+				height: auto;
+				display: inline-block;
+				border-radius: 2px;
+				font-family: "Cabin Condensed";
+				background: $azure;
+				padding: 8px 16px;
+				margin: 0 0 0 16px;
+				line-height: normal;
+				font-weight: 400;
+				font-size: 15px;
+				text-align: center;
+				color: white;
+				border: 1px solid shade($azure, 30%);
+				text-shadow: none;
+				cursor: pointer;
+				text-decoration: none;
+				-webkit-font-smoothing: antialiased;
+	
+				&.cancel {
+					background-color: $cancel;
+					border: 1px solid shade($cancel, 30%);
+				}
+			}
+		}
+	}
+}
